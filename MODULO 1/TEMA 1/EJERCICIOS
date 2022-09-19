@@ -1,0 +1,36 @@
+De encontrar el valor máximo de un array de enteros:
+
+    public static int valorMaximo (int[] array){
+        int max = -1;
+        if (array.length == 0) return max;
+        for (int i : array){
+            if (i > max){
+                max = i;
+            }
+        }
+        return max;
+    }
+
+Si existe un elemento en un array de enteros ordenados:
+
+    public static boolean comprobarSiExiste(int num, int[] array){
+        for (int i : array){
+            if (i == num){
+                return true;
+            }
+        }
+        return false;
+    }
+    
+Encontrar la matriz transpuesta a una dada:
+
+    public static int[][] matrizTraspuesta(int[][] matriz){
+        if (matriz.length == 0) return null;
+        int[][] traspuesta = new int[matriz[0].length][matriz.length];
+        for (int i = 0; i < matriz.length; i++){
+            for (int j = 0; j < matriz[i].length; j++){
+                traspuesta[j][i] = matriz[i][j];
+            }
+        }
+        return traspuesta;
+    }
