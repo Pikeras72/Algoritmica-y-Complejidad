@@ -1,0 +1,18 @@
+Actividad 2.15.
+Calcula la complejidad del siguiente algoritmo en función del tamaño del vector:
+
+boolean esta_Ordenado (int[] vector){
+  boolean ordenado = true;
+  int i = 1;
+  while (i<vector.length && ordenado) {
+    if (vector[i-1] > vector[i]) ordenado= false;
+    i++;
+  }
+  return ordenado;
+}
+
+MEJOR CASO: 0(1) --> QUE EL VECTOR SEA DE LONGUITUD 0 o 1
+
+CASO PROMEDIO: 0(N) --> RECORRE TODO EL VECTOR DE MÁS DE DOS DE LONGUITUD HASTA QUE ENCUENTRE DOS NUMEROS QUE NO ESTÉN ORDENADOS
+
+PEOR CASO: 0(N) --> RECORRE TODO EL VECTOR DE MÁS DE DOS DE LONGUITUD Y ESTÁ TODO ORDENADO.
