@@ -1,0 +1,21 @@
+public class Solution {
+    public static void main(String[] args) {
+        System.out.println(burbuja(new int[]{5,8,4,7,1,2}));
+    }
+    public static int[] burbuja(int[] vector){
+        int op,cnt = 0;
+        do{
+            op = 0;
+            for (int i=0; i<vector.length-cnt-1; i++) {
+                if(vector[i] > vector[i+1]){
+                    op++;
+                    int aux = vector[i+1];
+                    vector[i+1] = vector[i];
+                    vector[i] = aux;
+                }
+            }
+            cnt++;
+        }while(op != 0);
+        return vector;
+    }
+}
