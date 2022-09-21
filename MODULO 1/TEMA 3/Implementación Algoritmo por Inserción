@@ -1,0 +1,17 @@
+public class Solution {
+    public static void main(String[] args) {
+        System.out.println(insercion(new int[]{5,8,4,7,1,2}));
+    }
+    public static int[] insercion(int[] vector){
+        for (int i=1; i<vector.length; i++) {
+            int aux = vector[i];
+            int k = i;
+            while (k>0 && vector[k-1]>aux) {
+                vector[k]=vector[k-1];
+                k--;
+            }
+            vector[k]=aux;
+        }
+        return vector;
+    }
+}
