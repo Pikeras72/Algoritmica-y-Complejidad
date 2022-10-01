@@ -20,4 +20,4 @@ public class main {
     }
 }
 
-//Complejidad: 1*T(N/2)*O(1) = O(Log(N))
+//COMPLEJIDAD:   1*T(N/2)*O(1) = Log(N)
