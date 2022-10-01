@@ -19,4 +19,4 @@ public class main {
     }
 }
 
-//Complejidad   2*T(N/2)+O(1) = N
+//COMPLEJIDAD  2*T(N/2)+O(1) = N
