@@ -1,0 +1,56 @@
+public class main {
+    public static void main(String[] args) {
+        System.out.println(coincideIndice(new int[]{1 ,-850, -95 ,-9 ,4 ,99941}));
+    }
+    public static int recursividad (int[] vector, int i0, int iN){
+        if(i0 == iN){
+            return 1;       //devuelvo 1 que es lo que ocupa un número en el vector.
+        }
+        int k = (i0 + iN)/2;
+        int m1 = recursividad(vector, i0,k);
+        int m2 = recursividad(vector, k+1, iN);
+        int m3 = recursividad2(vector, i0, k, iN);
+        return Math.max(m1,Math.max(m2,m3));
+    }
+
+    public static int recursividad2(int[] vector, int i0, int k, int iN){
+        int cnt=0, res = 0;
+        int iMax=k; int jMax=k+1;
+        boolean seguir = false;
+        while(iMax>i0 && !seguir){      //parte izquierda
+            if(vector[iMax-1] > vector[iMax]){
+                seguir = true;
+            }else{
+                cnt++;
+            }
+            iMax--;
+        }
+        if (cnt > res){
+            res = cnt;
+        }
+        if (vector[k] > vector[k+1]){ //comprobar si el pivote está ordenado
+            cnt = 0;
+        }else{
+            cnt++;
+            res++;
+        }
+        seguir = false;
+        while (jMax<iN && !seguir){     //parte derecha
+            if(vector[jMax] > vector[jMax+1]){
+                seguir = true;
+            }else{
+                cnt++;
+            }
+            jMax++;
+        }
+        if (cnt > res){
+            res = cnt;
+        }
+        return res+1; //Siempre al menos hay un número
+    }
+    public static int coincideIndice(int[] vector){
+        return recursividad(vector,0,vector.length-1);
+    }
+}
+
+//COMPLEJIDAD:   2*T(N/2) + O(N)  =  N*Log(N)
