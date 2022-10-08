@@ -14,40 +14,17 @@ public class main {
     }
 
     public static int recursividad2(int[] vector, int i0, int k, int iN){
-        int cnt=0, res = 0;
-        int iMax=k; int jMax=k+1;
-        boolean seguir = false;
-        while(iMax>i0 && !seguir){      //parte izquierda
-            if(vector[iMax-1] > vector[iMax]){
-                seguir = true;
-            }else{
-                cnt++;
-            }
-            iMax--;
+        int i=k;
+        while (i>i0 && vector[i-1]<=vector[i]) {
+              i--;
         }
-        if (cnt > res){
-            res = cnt;
+        int j=k;
+        while (j<iN && vector[j+1]>=vector[j]) {
+            j++;
         }
-        if (vector[k] > vector[k+1]){ //comprobar si el pivote está ordenado
-            cnt = 0;
-        }else{
-            cnt++;
-            res++;
-        }
-        seguir = false;
-        while (jMax<iN && !seguir){     //parte derecha
-            if(vector[jMax] > vector[jMax+1]){
-                seguir = true;
-            }else{
-                cnt++;
-            }
-            jMax++;
-        }
-        if (cnt > res){
-            res = cnt;
-        }
-        return res+1; //Siempre al menos hay un número
+        return j-i+1;
     }
+    
     public static int coincideIndice(int[] vector){
         return recursividad(vector,0,vector.length-1);
     }
