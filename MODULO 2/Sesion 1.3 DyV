@@ -4,7 +4,7 @@ public class main {
     }
     public static int recursividad (int[] vector, int i0, int iN){
         if(i0 == iN){
-            return vector[i0];
+            if (vector[i0] == i0) return i0; else return -1;
         }
         int k = (i0 + iN)/2;
         if(vector[k] > k) {
